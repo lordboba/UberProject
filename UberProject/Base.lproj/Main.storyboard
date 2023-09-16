@@ -19,19 +19,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="GVX-w7-7rp"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="eTx-ww-8MH" id="XXf-a3-pEl"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="eTx-ww-8MH">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="9aB-Y2-Vkr"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="3Kb-M4-3bZ"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="3tv-P3-dsh"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="vxe-PV-1JM"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="973.28244274809151" y="3.5211267605633805"/>
         </scene>
