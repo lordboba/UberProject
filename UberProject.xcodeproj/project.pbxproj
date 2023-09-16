@@ -17,6 +17,7 @@
 		0D00944D2AB6650300459902 /* UberProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00944C2AB6650300459902 /* UberProjectTests.swift */; };
 		0D0094572AB6650300459902 /* UberProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0094562AB6650300459902 /* UberProjectUITests.swift */; };
 		0D0094592AB6650300459902 /* UberProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0094582AB6650300459902 /* UberProjectUITestsLaunchTests.swift */; };
+		0DED3F862AB66C320003344F /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F852AB66C320003344F /* Itinerary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0D0094522AB6650300459902 /* UberProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0094562AB6650300459902 /* UberProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberProjectUITests.swift; sourceTree = "<group>"; };
 		0D0094582AB6650300459902 /* UberProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0DED3F852AB66C320003344F /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,7 @@
 			children = (
 				0D0094322AB6650000459902 /* AppDelegate.swift */,
 				0D0094342AB6650000459902 /* SceneDelegate.swift */,
-				0D0094362AB6650000459902 /* WhereTo.swift */,
+				0DED3F822AB66BA90003344F /* Screens */,
 				0D0094382AB6650000459902 /* Main.storyboard */,
 				0D00943E2AB6650300459902 /* Assets.xcassets */,
 				0D0094402AB6650300459902 /* LaunchScreen.storyboard */,
@@ -128,6 +130,15 @@
 				0D0094582AB6650300459902 /* UberProjectUITestsLaunchTests.swift */,
 			);
 			path = UberProjectUITests;
+			sourceTree = "<group>";
+		};
+		0DED3F822AB66BA90003344F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0D0094362AB6650000459902 /* WhereTo.swift */,
+				0DED3F852AB66C320003344F /* Itinerary.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +276,7 @@
 				0D00943D2AB6650000459902 /* UberProject.xcdatamodeld in Sources */,
 				0D0094332AB6650000459902 /* AppDelegate.swift in Sources */,
 				0D0094352AB6650000459902 /* SceneDelegate.swift in Sources */,
+				0DED3F862AB66C320003344F /* Itinerary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
