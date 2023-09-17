@@ -30,6 +30,7 @@
 		0DED3FA02AB6A5860003344F /* GetRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F9F2AB6A5860003344F /* GetRoutes.swift */; };
 		0DED3FE52AB6D4570003344F /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DED3FE42AB6D4570003344F /* GooglePlaces.bundle */; };
 		AC8ACD6F2AB7793800A90C20 /* TestingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8ACD6E2AB7793800A90C20 /* TestingScreen.swift */; };
+		F35A61252AB7959100E3B394 /* GenerateRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35A61242AB7959100E3B394 /* GenerateRoutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		0DED3F9F2AB6A5860003344F /* GetRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRoutes.swift; sourceTree = "<group>"; };
 		0DED3FE42AB6D4570003344F /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlaces.bundle; sourceTree = "<group>"; };
 		AC8ACD6E2AB7793800A90C20 /* TestingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingScreen.swift; sourceTree = "<group>"; };
+		F35A61242AB7959100E3B394 /* GenerateRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRoutes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				0DED3F872AB684C30003344F /* Results.swift */,
 				0DED3F892AB68B7B0003344F /* GooglePlacesManager.swift */,
 				AC8ACD6E2AB7793800A90C20 /* TestingScreen.swift */,
+				F35A61242AB7959100E3B394 /* GenerateRoutes.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				0DED3FA02AB6A5860003344F /* GetRoutes.swift in Sources */,
 				0D0094332AB6650000459902 /* AppDelegate.swift in Sources */,
 				0D0094352AB6650000459902 /* SceneDelegate.swift in Sources */,
+				F35A61252AB7959100E3B394 /* GenerateRoutes.swift in Sources */,
 				0DED3F862AB66C320003344F /* Itinerary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
