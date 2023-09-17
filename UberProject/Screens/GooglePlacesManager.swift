@@ -19,12 +19,9 @@ final class GooglePlacesManager {
     
     private let client = GMSPlacesClient.shared()
     
-    private init() {setUp()}
+    private init() {}
     
-    public func setUp() {
-        GMSPlacesClient.provideAPIKey(Bundle.main.infoDictionary?["API_KEY"] as? String ?? "")
-    }
-    
+      
     enum PlacesError: Error {
         case failedToFind
         case failedToGetCoordinates
@@ -33,17 +30,22 @@ final class GooglePlacesManager {
     
     // Fetching all places, autocomplete for certain query
     public func findPlaces(
+        
         query: String,
         completion: @escaping (Result<[Place], Error>) -> Void
     ) {
+        //print(GMSPlacesClient.provideAPIKey(Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""))
+        print(type(of: client))
             let filter = GMSAutocompleteFilter()
-            filter.type = .geocode
+        filter.type = .geocode
         client.findAutocompletePredictions(
                 fromQuery: query,
                 filter: filter,
                 sessionToken: nil
             ) { results, error in
                 guard let results = results, error == nil else {
+                    //print("up")
+                    //print(results)
                     completion(.failure(PlacesError.failedToFind))
                     return
                 }

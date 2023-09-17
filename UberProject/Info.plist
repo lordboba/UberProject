@@ -3,11 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyD1owuZouA8R-YrvpxZStbWT_LrwyaFBYk
-
-AIzaSyD1owuZouA8R-YrvpxZStbWT_LrwyaFBYk
-
-</string>
+	<string>AIzaSyD1owuZouA8R-YrvpxZStbWT_LrwyaFBYk</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

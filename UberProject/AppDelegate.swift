@@ -15,8 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        [GMSPlacesClient.provideAPIKey(Bundle.main.infoDictionary?["API_KEY"] as? String ?? "")];
+        print(GMSPlacesClient.provideAPIKey(Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""))
+        /*
+        let filter = GMSAutocompleteFilter()
+    filter.types = ["geocode","address"]
+        GMSPlacesClient.shared().findAutocompletePredictions(
+            fromQuery: "G",
+            filter: filter,
+            sessionToken: nil
+        ) { results, error in
+            guard let results = results, error == nil else {
+                print(error)
+               
+                return
+            }
+            let places: [Place] = results.compactMap({
+                Place(
+                    name: $0.attributedFullText.string,
+                    identifier: $0.placeID
+                )
+            })
+            
+            
+        }*/
         return true
     }
 

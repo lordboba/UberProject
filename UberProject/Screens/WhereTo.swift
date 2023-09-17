@@ -53,6 +53,7 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
                 
             case.failure(let error):
                 print(error)
+                //print("fe")
             }
         }
     }
