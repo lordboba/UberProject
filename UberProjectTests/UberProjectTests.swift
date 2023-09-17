@@ -27,7 +27,12 @@ final class UberProjectTests: XCTestCase {
         var routes = [String: Any]()
         routes = UberProject.fetchRoutes(orgLat: 37.419734, orgLong: -122.0827784, desLat: 37.417670, desLong: -122.079595)
         print(routes)
-        let check = Array(routes.keys)[0]
+        var check = Array(routes.keys)[0]
+        XCTAssert(check != "error")
+        
+        routes = UberProject.fetchRoutes(orgAdd: "1600 Amphitheatre Parkway, Mountain View, CA", desAdd: "450 Serra Mall, Stanford, CA 94305, USA")
+        print(routes)
+        check = Array(routes.keys)[0]
         XCTAssert(check != "error")
     }
 
