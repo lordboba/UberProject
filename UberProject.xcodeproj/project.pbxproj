@@ -17,6 +17,7 @@
 		0D00944D2AB6650300459902 /* UberProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00944C2AB6650300459902 /* UberProjectTests.swift */; };
 		0D0094572AB6650300459902 /* UberProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0094562AB6650300459902 /* UberProjectUITests.swift */; };
 		0D0094592AB6650300459902 /* UberProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0094582AB6650300459902 /* UberProjectUITestsLaunchTests.swift */; };
+		0DC671682AB6D94C0096DAB1 /* GooglePlaces.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3FE02AB6D1550003344F /* GooglePlaces.xcframework */; };
 		0DED3F862AB66C320003344F /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F852AB66C320003344F /* Itinerary.swift */; };
 		0DED3F882AB684C30003344F /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F872AB684C30003344F /* Results.swift */; };
 		0DED3F8A2AB68B7B0003344F /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F892AB68B7B0003344F /* GooglePlacesManager.swift */; };
@@ -27,6 +28,7 @@
 		0DED3F982AB69C240003344F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F972AB69C240003344F /* QuartzCore.framework */; };
 		0DED3F9A2AB69C2C0003344F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F992AB69C2C0003344F /* UIKit.framework */; };
 		0DED3FA02AB6A5860003344F /* GetRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F9F2AB6A5860003344F /* GetRoutes.swift */; };
+		0DED3FE52AB6D4570003344F /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DED3FE42AB6D4570003344F /* GooglePlaces.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 		0DED3F972AB69C240003344F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0DED3F992AB69C2C0003344F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0DED3F9F2AB6A5860003344F /* GetRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRoutes.swift; sourceTree = "<group>"; };
+		0DED3FE02AB6D1550003344F /* GooglePlaces.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GooglePlaces.xcframework; path = "../../Downloads/GooglePlaces-8.2.1/Frameworks/GooglePlaces.xcframework"; sourceTree = "<group>"; };
+		0DED3FE42AB6D4570003344F /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlaces.bundle; sourceTree = "<group>"; };
+		0DED3FE62AB6D8BB0003344F /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = "../../Downloads/GooglePlaces-8.2.1/Frameworks/GooglePlaces.xcframework/ios-arm64/GooglePlaces.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 				0DED3F962AB69C200003344F /* libz.tbd in Frameworks */,
 				0DED3F942AB69C1B0003344F /* libc++.tbd in Frameworks */,
 				0DED3F922AB69C150003344F /* CoreLocation.framework in Frameworks */,
+				0DC671682AB6D94C0096DAB1 /* GooglePlaces.xcframework in Frameworks */,
 				0DED3F902AB69C100003344F /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +178,9 @@
 		77C13150412A3239C4DDE8C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DED3FE62AB6D8BB0003344F /* GooglePlaces.framework */,
+				0DED3FE42AB6D4570003344F /* GooglePlaces.bundle */,
+				0DED3FE02AB6D1550003344F /* GooglePlaces.xcframework */,
 				0DED3F992AB69C2C0003344F /* UIKit.framework */,
 				0DED3F972AB69C240003344F /* QuartzCore.framework */,
 				0DED3F952AB69C200003344F /* libz.tbd */,
@@ -289,6 +298,7 @@
 				0D0094422AB6650300459902 /* LaunchScreen.storyboard in Resources */,
 				0D00943F2AB6650300459902 /* Assets.xcassets in Resources */,
 				0D00943A2AB6650000459902 /* Main.storyboard in Resources */,
+				0DED3FE52AB6D4570003344F /* GooglePlaces.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,11 +509,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = A95V8P4FK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UberProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RideHop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -512,6 +525,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = lordboba.UberProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -527,11 +541,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = A95V8P4FK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UberProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RideHop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

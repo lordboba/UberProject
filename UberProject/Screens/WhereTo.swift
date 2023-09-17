@@ -59,12 +59,12 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
 
 }
 
-extension ViewController: ResultViewControllerDelegate {
+extension WhereTo: ResultsDelegate {
     func didTapPlace(with coordinates: CLLocationCoordinate2D){
         
         // keyboard go away after find destination
         searchVC.searchBar.resignFirstResponder()
-        searchVC.dismissed(animated: true, completion: nil)
+        searchVC.dismiss(animated: true, completion: nil)
         
         // remove past map pins
         let annotations = mapView.annotations
@@ -78,10 +78,11 @@ extension ViewController: ResultViewControllerDelegate {
             MKCoordinateRegion(
                 center: coordinates,
                 span: MKCoordinateSpan(
-                    lattitudeDelta: 0.2,
+                    latitudeDelta: 0.2,
                     longitudeDelta: 0.2
                 )),
             animated: true
         )
     }
 }
+

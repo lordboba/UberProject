@@ -19,7 +19,11 @@ final class GooglePlacesManager {
     
     private let client = GMSPlacesClient.shared()
     
-    private init() {}
+    private init() {setUp()}
+    
+    public func setUp() {
+        GMSPlacesClient.provideAPIKey(Bundle.main.infoDictionary?["API_KEY"] as? String ?? "")
+    }
     
     enum PlacesError: Error {
         case failedToFind
@@ -34,7 +38,7 @@ final class GooglePlacesManager {
     ) {
             let filter = GMSAutocompleteFilter()
             filter.type = .geocode
-            client.findAutocompletePredictions(
+        client.findAutocompletePredictions(
                 fromQuery: query,
                 filter: filter,
                 sessionToken: nil
@@ -60,7 +64,7 @@ final class GooglePlacesManager {
         completion: @escaping (Result<CLLocationCoordinate2D, Error>) -> Void
     ) {
         client.fetchPlace(
-            fromPlaceID: place.identifer,
+            fromPlaceID: place.identifier,
             placeFields: .coordinate,
             sessionToken: nil
         ) { googlePlace, error in
@@ -70,7 +74,7 @@ final class GooglePlacesManager {
             }
             
             let coordinate = CLLocationCoordinate2D(
-                latitude: googlePlace.coordinate.latitute,
+                latitude: googlePlace.coordinate.latitude,
                 longitude: googlePlace.coordinate.longitude
             )
             
