@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21699.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E1u-0N-rb2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E1u-0N-rb2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +23,15 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <segue destination="N9r-9l-NTN" kind="show" id="i3k-f4-Qbv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGm-8g-tXK">
+                                <rect key="frame" x="136" y="155" width="121" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Card Testing"/>
+                                <connections>
+                                    <segue destination="rul-w8-4Y8" kind="show" id="cMY-fI-sL0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,6 +60,108 @@
             </objects>
             <point key="canvasLocation" x="1752" y="4"/>
         </scene>
+        <!--Generate Routes-->
+        <scene sceneID="FYn-95-E32">
+            <objects>
+                <viewController id="rul-w8-4Y8" customClass="GenerateRoutes" customModule="UberProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlr-f5-ANH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="275" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uSg-wv-BYU">
+                                <rect key="frame" x="0.0" y="166" width="393" height="663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xkg-L5-HW4">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="275"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xkg-L5-HW4" id="mfg-gT-dWP">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="275"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3B-HG-9KA">
+                                                    <rect key="frame" x="35" y="32" width="323" height="223"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="3rJ-Rn-THl">
+                                                            <rect key="frame" x="24" y="11" width="63" height="59"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bus" translatesAutoresizingMaskIntoConstraints="NO" id="dLi-Sp-1Ig">
+                                                            <rect key="frame" x="84" y="16" width="48" height="46"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Subway" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-Jb-VKo">
+                                                            <rect key="frame" x="136" y="12" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Light-rail" translatesAutoresizingMaskIntoConstraints="NO" id="6gr-Vj-epd">
+                                                            <rect key="frame" x="224" y="8" width="79" height="64"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="QUs-u2-yoc">
+                                                            <rect key="frame" x="30" y="73" width="51" height="43"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="35 min " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cI2-ky-CHQ">
+                                                            <rect key="frame" x="172" y="78" width="111" height="34"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$65.70" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3k-JH-NdN">
+                                                            <rect key="frame" x="172" y="124" width="111" height="34"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="- 45% CO2" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CdR-9T-ERi">
+                                                            <rect key="frame" x="172" y="168" width="111" height="34"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Emissions" translatesAutoresizingMaskIntoConstraints="NO" id="dew-84-jJa">
+                                                            <rect key="frame" x="35" y="166" width="44" height="36"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Price" translatesAutoresizingMaskIntoConstraints="NO" id="BCb-wK-FhO">
+                                                            <rect key="frame" x="32" y="122" width="47" height="38"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Train" translatesAutoresizingMaskIntoConstraints="NO" id="dsH-Ry-UDw">
+                                                            <rect key="frame" x="188" y="16" width="46" height="43"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="S3B-HG-9KA" secondAttribute="trailing" constant="15" id="A9K-4E-P7W"/>
+                                                <constraint firstItem="S3B-HG-9KA" firstAttribute="leading" secondItem="mfg-gT-dWP" secondAttribute="leadingMargin" constant="15" id="Dyl-da-bzH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="S3B-HG-9KA" secondAttribute="bottom" constant="15" id="v19-h3-IPQ"/>
+                                                <constraint firstItem="S3B-HG-9KA" firstAttribute="top" secondItem="mfg-gT-dWP" secondAttribute="topMargin" constant="15" id="z0y-Ba-1VQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SCR-sI-vuX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SCR-sI-vuX" firstAttribute="trailing" secondItem="uSg-wv-BYU" secondAttribute="trailing" id="A6Q-cT-OQr"/>
+                            <constraint firstItem="uSg-wv-BYU" firstAttribute="top" secondItem="SCR-sI-vuX" secondAttribute="top" id="G13-Fv-ofp"/>
+                            <constraint firstItem="uSg-wv-BYU" firstAttribute="leading" secondItem="SCR-sI-vuX" secondAttribute="leading" id="W1b-Ot-7qi"/>
+                            <constraint firstItem="SCR-sI-vuX" firstAttribute="bottom" secondItem="uSg-wv-BYU" secondAttribute="bottom" id="r9v-Vd-Egd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AVL-jJ-sD6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehz-q5-aN3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458.7786259541986" y="-5.6338028169014089"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gr0-Vn-4gL">
             <objects>
@@ -72,6 +182,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bus" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Car" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Emissions" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Light-rail" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Price" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Subway" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Time" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Train" width="166.66667175292969" height="166.66667175292969"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
