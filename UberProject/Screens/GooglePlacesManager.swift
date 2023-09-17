@@ -16,7 +16,7 @@ final class GooglePlacesManager {
     private init() {}
     
     public func setUp() {
-        GMSPlacesClient.provideAPIKey(Bundle.main.infoDictionary?["API_KEY"] as? String)
+        GMSPlacesClient.provideAPIKey((Bundle.main.infoDictionary?["API_KEY"] as? String)!)
     }
     
     public func findPlaces(
