@@ -17,33 +17,9 @@ class TestingScreen: UIViewController {
         print("\n--------------------------------------\n")
         routes = fetchRoutes(orgAdd: "Portland, Oregon", desAdd: "Chicago, Illinois")
         var route_list = routes["routes"] as! [Any]
-        for r in route_list {
-            var steps = (((route_list[1] as! Dictionary<String, Any>)["legs"] as! [Any])[0] as! Dictionary<String, Any>)["steps"] as! [Any]
-            for s in steps {
-                var temp2 = s as! Dictionary<String, Any>
-                var instruction_text = (s as! Dictionary<String, Any>)["navigationInstruction"] as! Dictionary<String, String>
-                //print(s)
-                var mode = temp2["travelMode"] as! String
-                //var details = (s as! Dictionary<String, Any>)["transitDetails"] as! Dictionary<String, Any>
-                var vals = (s as! Dictionary<String, Any>)["localizedValues"] as! Dictionary<String, Any>
-
-                //print(details)
-                print(mode)
-                if (temp2.contains { $0.key == "transitDetails" }) {
-                    print("yes transit")
-                }
-                print(instruction_text)
-                print(vals)
-                //print(type(of:s))
-
-            }
-            //print(temp)
-            //var keys = (temp as! Dictionary<String, Any>).keys
-            //print(type(of:temp))
-            //print(temp["legs"])
-            //print(keys)
-
-        }
+        var parsed_list = processRoutes(route_list: route_list)
+        print(parsed_list)
+        
 //        print(route_list.count)
 //        print(route_list[0])
 //        var json = [Any]()
@@ -69,7 +45,44 @@ class TestingScreen: UIViewController {
 //            print(error.localizedDescription)
 //        }
     }
+    func processRoutes(route_list : [Any]) -> [[String: Any]]{
+        var final_list = [[String:Any]]()
+        for r in route_list {
+            var steps = (((r as! Dictionary<String, Any>)["legs"] as! [Any])[0] as! Dictionary<String, Any>)["steps"] as! [Any]
+            var routeArr = ["localizedValues":(r as! Dictionary<String, Any>)["localizedValues"]]
+            var stepArr = [String:Any]()
+            for s in steps {
+                var temp2 = s as! Dictionary<String, Any>
+                var instruction_text = (s as! Dictionary<String, Any>)["navigationInstruction"] as! Dictionary<String, String>
+                //print(s)
+                var mode = temp2["travelMode"] as! String
+                //var details = (s as! Dictionary<String, Any>)["transitDetails"] as! Dictionary<String, Any>
+                var vals = (s as! Dictionary<String, Any>)["localizedValues"] as! Dictionary<String, Any>
+                stepArr["navigationInstruction"] = instruction_text
+                stepArr["mode"] = mode
+                stepArr["vals"] = vals
+                //print(details)
+                //print(mode)
+                if (temp2.contains { $0.key == "transitDetails" }) {
+                    print("yes transit")
+                    stepArr["transitDetails"] = temp2["transitDetails"] as! Dictionary<String, Any>
+                }
+                //print(instruction_text)
+                //print(vals)
+                //print(type(of:s))
 
+            }
+            routeArr["steps"] = stepArr
+            final_list.append(routeArr)
+            //print(temp)
+            //var keys = (temp as! Dictionary<String, Any>).keys
+            //print(type(of:temp))
+            //print(temp["legs"])
+            //print(keys)
+
+        }
+        return final_list
+    }
     /*
     // MARK: - Navigation
 
