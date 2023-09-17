@@ -21,6 +21,7 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("yo")
     }
     
