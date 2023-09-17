@@ -8,16 +8,9 @@
 import UIKit
 
 class GenerateRoutes: UIViewController {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }
