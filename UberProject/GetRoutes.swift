@@ -98,7 +98,7 @@ func fetch(json: [String:Any]) -> [String:Any] {
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     //request.setValue("application/json", forHTTPHeaderField: "Accept")
     request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
-    request.setValue("AIzaSyD1owuZouA8R-YrvpxZStbWT_LrwyaFBYk", forHTTPHeaderField: "X-Goog-Api-Key")
+    request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", forHTTPHeaderField: "X-Goog-Api-Key")
     request.setValue("routes.*", forHTTPHeaderField: "X-Goog-FieldMask")
     var the_error = ""
     var jsonResult = [String:Any]()
