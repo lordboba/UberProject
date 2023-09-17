@@ -52,7 +52,7 @@ func fetchRoutes(orgLat: Float, orgLong: Float, desLat: Float, desLong: Float)->
     //request.setValue("application/json", forHTTPHeaderField: "Accept")
     request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
     request.setValue("AIzaSyD1owuZouA8R-YrvpxZStbWT_LrwyaFBYk", forHTTPHeaderField: "X-Goog-Api-Key")
-    request.setValue("routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline", forHTTPHeaderField: "X-Goog-FieldMask")
+    request.setValue("routes", forHTTPHeaderField: "X-Goog-FieldMask")
     var the_error = ""
     var jsonResult = [String:Any]()
     let semaphore = DispatchSemaphore(value: 0)
