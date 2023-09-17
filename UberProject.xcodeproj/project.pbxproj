@@ -18,6 +18,14 @@
 		0D0094572AB6650300459902 /* UberProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0094562AB6650300459902 /* UberProjectUITests.swift */; };
 		0D0094592AB6650300459902 /* UberProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0094582AB6650300459902 /* UberProjectUITestsLaunchTests.swift */; };
 		0DED3F862AB66C320003344F /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F852AB66C320003344F /* Itinerary.swift */; };
+		0DED3F882AB684C30003344F /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F872AB684C30003344F /* Results.swift */; };
+		0DED3F8A2AB68B7B0003344F /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F892AB68B7B0003344F /* GooglePlacesManager.swift */; };
+		0DED3F902AB69C100003344F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F8F2AB69C100003344F /* CoreGraphics.framework */; };
+		0DED3F922AB69C150003344F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F912AB69C150003344F /* CoreLocation.framework */; };
+		0DED3F942AB69C1B0003344F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F932AB69C1B0003344F /* libc++.tbd */; };
+		0DED3F962AB69C200003344F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F952AB69C200003344F /* libz.tbd */; };
+		0DED3F982AB69C240003344F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F972AB69C240003344F /* QuartzCore.framework */; };
+		0DED3F9A2AB69C2C0003344F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F992AB69C2C0003344F /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,14 @@
 		0D0094562AB6650300459902 /* UberProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberProjectUITests.swift; sourceTree = "<group>"; };
 		0D0094582AB6650300459902 /* UberProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0DED3F852AB66C320003344F /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
+		0DED3F872AB684C30003344F /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		0DED3F892AB68B7B0003344F /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesManager.swift; sourceTree = "<group>"; };
+		0DED3F8F2AB69C100003344F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0DED3F912AB69C150003344F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0DED3F932AB69C1B0003344F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		0DED3F952AB69C200003344F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0DED3F972AB69C240003344F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0DED3F992AB69C2C0003344F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DED3F9A2AB69C2C0003344F /* UIKit.framework in Frameworks */,
+				0DED3F982AB69C240003344F /* QuartzCore.framework in Frameworks */,
+				0DED3F962AB69C200003344F /* libz.tbd in Frameworks */,
+				0DED3F942AB69C1B0003344F /* libc++.tbd in Frameworks */,
+				0DED3F922AB69C150003344F /* CoreLocation.framework in Frameworks */,
+				0DED3F902AB69C100003344F /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +109,7 @@
 				0D00944B2AB6650300459902 /* UberProjectTests */,
 				0D0094552AB6650300459902 /* UberProjectUITests */,
 				0D0094302AB6650000459902 /* Products */,
+				77C13150412A3239C4DDE8C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,8 +160,23 @@
 			children = (
 				0D0094362AB6650000459902 /* WhereTo.swift */,
 				0DED3F852AB66C320003344F /* Itinerary.swift */,
+				0DED3F872AB684C30003344F /* Results.swift */,
+				0DED3F892AB68B7B0003344F /* GooglePlacesManager.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		77C13150412A3239C4DDE8C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DED3F992AB69C2C0003344F /* UIKit.framework */,
+				0DED3F972AB69C240003344F /* QuartzCore.framework */,
+				0DED3F952AB69C200003344F /* libz.tbd */,
+				0DED3F932AB69C1B0003344F /* libc++.tbd */,
+				0DED3F912AB69C150003344F /* CoreLocation.framework */,
+				0DED3F8F2AB69C100003344F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DED3F882AB684C30003344F /* Results.swift in Sources */,
 				0D0094372AB6650000459902 /* WhereTo.swift in Sources */,
 				0D00943D2AB6650000459902 /* UberProject.xcdatamodeld in Sources */,
+				0DED3F8A2AB68B7B0003344F /* GooglePlacesManager.swift in Sources */,
 				0D0094332AB6650000459902 /* AppDelegate.swift in Sources */,
 				0D0094352AB6650000459902 /* SceneDelegate.swift in Sources */,
 				0DED3F862AB66C320003344F /* Itinerary.swift in Sources */,
@@ -386,6 +426,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -439,6 +480,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
