@@ -29,6 +29,7 @@
 		0DED3F9A2AB69C2C0003344F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED3F992AB69C2C0003344F /* UIKit.framework */; };
 		0DED3FA02AB6A5860003344F /* GetRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED3F9F2AB6A5860003344F /* GetRoutes.swift */; };
 		0DED3FE52AB6D4570003344F /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DED3FE42AB6D4570003344F /* GooglePlaces.bundle */; };
+		AC8ACD6F2AB7793800A90C20 /* TestingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8ACD6E2AB7793800A90C20 /* TestingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		0DED3F992AB69C2C0003344F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0DED3F9F2AB6A5860003344F /* GetRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRoutes.swift; sourceTree = "<group>"; };
 		0DED3FE42AB6D4570003344F /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlaces.bundle; sourceTree = "<group>"; };
+		AC8ACD6E2AB7793800A90C20 /* TestingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				0DED3F852AB66C320003344F /* Itinerary.swift */,
 				0DED3F872AB684C30003344F /* Results.swift */,
 				0DED3F892AB68B7B0003344F /* GooglePlacesManager.swift */,
+				AC8ACD6E2AB7793800A90C20 /* TestingScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			files = (
 				0DED3F882AB684C30003344F /* Results.swift in Sources */,
 				0D0094372AB6650000459902 /* WhereTo.swift in Sources */,
+				AC8ACD6F2AB7793800A90C20 /* TestingScreen.swift in Sources */,
 				0D00943D2AB6650000459902 /* UberProject.xcdatamodeld in Sources */,
 				0DED3F8A2AB68B7B0003344F /* GooglePlacesManager.swift in Sources */,
 				0DED3FA02AB6A5860003344F /* GetRoutes.swift in Sources */,
