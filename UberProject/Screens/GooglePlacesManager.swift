@@ -35,9 +35,9 @@ final class GooglePlacesManager {
         completion: @escaping (Result<[Place], Error>) -> Void
     ) {
         //print(GMSPlacesClient.provideAPIKey(Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""))
-        print(type(of: client))
+        //print(type(of: client))
             let filter = GMSAutocompleteFilter()
-        filter.type = .geocode
+        filter.types = ["geocode"]
         client.findAutocompletePredictions(
                 fromQuery: query,
                 filter: filter,
