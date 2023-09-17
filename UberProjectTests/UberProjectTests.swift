@@ -25,12 +25,12 @@ final class UberProjectTests: XCTestCase {
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
         var routes = [String: Any]()
-        routes = UberProject.fetchRoutes(orgLat: 37.419734, orgLong: -122.0827784, desLat: 37.417670, desLong: -122.079595)
+        routes = UberProject.fetchRoutes(orgLat: 40.731181, orgLong: -73.885253, desLat: 40.596178, desLong: 73.980285)
         print(routes)
         var check = Array(routes.keys)[0]
         XCTAssert(check != "error")
         
-        routes = UberProject.fetchRoutes(orgAdd: "1600 Amphitheatre Parkway, Mountain View, CA", desAdd: "450 Serra Mall, Stanford, CA 94305, USA")
+        routes = UberProject.fetchRoutes(orgAdd: "Humberto Delgado Airport, Portugal", desAdd: "Basílica of Estrela, Praça da Estrela, 1200-667 Lisboa, Portugal")
         print(routes)
         check = Array(routes.keys)[0]
         XCTAssert(check != "error")

@@ -32,43 +32,55 @@ func fetchRoutes(orgLat: Float, orgLong: Float, desLat: Float, desLong: Float)->
                                                      ]
                                              ]
                                      ],
-                                 "travelMode": "DRIVE",
-                                 "routingPreference": "TRAFFIC_AWARE",
+                                 "travelMode": "TRANSIT",
+    //                             "routingPreference": "TRAFFIC_AWARE",
                                  "computeAlternativeRoutes": true,
-                                 "routeModifiers": [
+                                 "routeModifiers":
+                                    [
                                      "avoidTolls": false,
                                      "avoidHighways": false,
                                      "avoidFerries": false
-                                 ],
+                                    ],
                                  "languageCode": "en-US",
-                                 "units": "IMPERIAL"
-//                                 "departureTime": "2023-10-15T15:01:23.045123456Z",
-                             ]
+                                 "units": "IMPERIAL",
+                                 "transitPreferences":
+                                    [
+    //                                 "routingPreference": "LESS_WALKING|FEWER_TRANSFERS",
+                                     "allowedTravelModes": ["BUS","SUBWAY","TRAIN","LIGHT_RAIL","RAIL"]
+                                    ],
+    //                             "departureTime": "2023-10-15T15:01:23.045123456Z",
+                                 ]
     let jsonData: [String:Any] = fetch(json: json)
     return jsonData
 }
 
 func fetchRoutes(orgAdd: String, desAdd: String)-> [String: Any]  {
     let json: [String:Any] = [
-                                 "origin":
-                                     [
-                                         "address": orgAdd
-                                     ],
-                                 "destination":
-                                     [
-                                         "address": desAdd
-                                     ],
-                                 "travelMode": "DRIVE",
-                                 "routingPreference": "TRAFFIC_AWARE",
-                                 "computeAlternativeRoutes": true,
-                                 "routeModifiers": [
-                                     "avoidTolls": false,
-                                     "avoidHighways": false,
-                                     "avoidFerries": false
-                                 ],
-                                 "languageCode": "en-US",
-                                 "units": "IMPERIAL"
-//                                 "departureTime": "2023-10-15T15:01:23.045123456Z",
+                             "origin":
+                                [
+                                 "address": orgAdd
+                                ],
+                             "destination":
+                                [
+                                 "address": desAdd
+                                ],
+                             "travelMode": "TRANSIT",
+//                             "routingPreference": "TRAFFIC_AWARE",
+                             "computeAlternativeRoutes": true,
+                             "routeModifiers":
+                                [
+                                 "avoidTolls": false,
+                                 "avoidHighways": false,
+                                 "avoidFerries": false
+                                ],
+                             "languageCode": "en-US",
+                             "units": "IMPERIAL",
+                             "transitPreferences":
+                                [
+//                                 "routingPreference": "LESS_WALKING|FEWER_TRANSFERS",
+                                 "allowedTravelModes": ["BUS","SUBWAY","TRAIN","LIGHT_RAIL","RAIL"]
+                                ],
+//                             "departureTime": "2023-10-15T15:01:23.045123456Z",
                              ]
     let jsonData: [String:Any] = fetch(json: json)
     return jsonData
@@ -79,12 +91,15 @@ func fetch(json: [String:Any]) -> [String:Any] {
     var request = URLRequest(url:url)
     request.httpMethod = "POST"
     let jsonData = try! JSONSerialization.data(withJSONObject: json)
+    if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+       print(JSONString)
+    }
     request.httpBody = jsonData
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     //request.setValue("application/json", forHTTPHeaderField: "Accept")
     request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
-    request.setValue("AIzaSyD1owuZouA8R-YrvpxZStbWT_LrwyaFBYk", forHTTPHeaderField: "X-Goog-Api-Key")
-    request.setValue("routes", forHTTPHeaderField: "X-Goog-FieldMask")
+    request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String ?? "", forHTTPHeaderField: "X-Goog-Api-Key")
+    request.setValue("routes.*", forHTTPHeaderField: "X-Goog-FieldMask")
     var the_error = ""
     var jsonResult = [String:Any]()
     let semaphore = DispatchSemaphore(value: 0)
@@ -94,6 +109,7 @@ func fetch(json: [String:Any]) -> [String:Any] {
             return
         }
         do {
+            print(data)
             jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : [Any]]
         } catch {
         }
