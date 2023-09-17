@@ -295,10 +295,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DED3FE52AB6D4570003344F /* GooglePlaces.bundle in Resources */,
 				0D0094422AB6650300459902 /* LaunchScreen.storyboard in Resources */,
 				0D00943F2AB6650300459902 /* Assets.xcassets in Resources */,
 				0D00943A2AB6650000459902 /* Main.storyboard in Resources */,
-				0DED3FE52AB6D4570003344F /* GooglePlaces.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

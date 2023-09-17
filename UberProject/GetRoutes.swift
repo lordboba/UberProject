@@ -58,7 +58,7 @@ func fetch(orgLat: Float, orgLong: Float, desLat: Float, desLong: Float) {
 
     
 
-    let task = URLSession.shared.dataTask(with: request){ [weak self]
+    let task = URLSession.shared.dataTask(with: request){
         data, response, error in
         //print("brp")
         //print(data!)
@@ -75,11 +75,6 @@ func fetch(orgLat: Float, orgLong: Float, desLat: Float, desLong: Float) {
             //let data_ish = try JSONDecoder().decode(DataUpdate.self, from: data)
             //print("chicken?")
             //self?.user_data = jsonResult
-            DispatchQueue.main.async {
-                self?.user_data = jsonResult as! Dictionary<String,Any>
-                //print("yoo")
-                self?.processData()
-            }
             
             //print(self?.user_data)
             //print(data_ish)
