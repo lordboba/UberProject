@@ -36,19 +36,70 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
         case "Time":
             sortByButton.backgroundColor = .systemBlue
             sortByButton.setTitle("Time", for: .normal)
+            sortBy(array:times,dir:true)
+
         case "Price":
             sortByButton.backgroundColor = .systemYellow
             sortByButton.setTitle("Price", for: .normal)
+            sortBy(array:prices,dir:true)
+
         case "Emissions":
             sortByButton.backgroundColor = .systemGreen
             sortByButton.setTitle("Emissions", for: .normal)
+            sortBy(array:emissions,dir:false)
+
         default:
             sortByButton.backgroundColor = .systemBlue
             sortByButton.setTitle("Time", for: .normal)
+            sortBy(array:times,dir:true)
         }
+        cardTableView.reloadData()
     }
     // Generate certain icons depending on route
-    
+    func sortBy(array : [String], dir : Bool) {
+        var actual : [Float] = []
+        for a in array {
+            actual.append(Float(a)!)
+        }
+        let size = array.count
+            for x in 0..<size{
+                for y in 0..<size-x-1 {
+                    if actual[y] > actual[y+1] {
+                        actual = swapAll(a:y, b:y+1, arr: actual)
+                    }
+                }
+            }
+        if !dir {
+            reverseAll()
+        }
+        print(actual)
+    }
+    func reverseAll() {
+        times = times.reversed()
+        prices = prices.reversed()
+        emissions = emissions.reversed()
+        icons = icons.reversed()
+    }
+    func swapAll(a : Int, b: Int, arr : [Float]) -> [Float]{
+        var temp = times[a]
+        times[a] = times[b]
+        times[b] = temp
+        temp = prices[a]
+        prices[a] = prices[b]
+        prices[b] = temp
+        temp = emissions[a]
+        emissions[a] = emissions[b]
+        emissions[b] = temp
+        var temp2 = icons[a]
+        icons[a] = icons[b]
+        icons[b] = temp2
+        var bot = arr
+        var temp3 = arr[a]
+        bot[a] = arr[b]
+        bot[b] = temp3
+        return bot
+        
+    }
     // Need to connect to backend
     var times: [String] = []
     var prices: [String] = []
@@ -116,7 +167,10 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
                 var vals = temp2["localizedValues"] as! Dictionary<String, Dictionary<String, String>>
                 if mode == "TRANSIT" {
                     var type = (((temp2["transitDetails"] as! Dictionary<String, Any>)["transitLine"] as! Dictionary<String,Any>)["vehicle"] as! Dictionary<String, Any>)["type"] as! String
-                    print(type)
+                    //print(type)
+                    if type == "HEAVY_RAIL" {
+                        type = "TRAIN"
+                    }
                     for i in 0..<5 {
                         if(textVal[i] == type) {
                             var dist = Float(vals["distance"]!["text"]!.components(separatedBy: " ")[0])!
@@ -124,8 +178,11 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
                             icon_keys[i] = true
                         }
                     }
-                    price += 2.9
-                    //print(vals)
+                    if type  == "TRAIN"{
+                        price += 15.0
+                    }else{
+                        price += 2.9
+                    }//print(vals)
                 }
                 
                 //print(mode)
