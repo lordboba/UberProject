@@ -9,6 +9,7 @@ import Foundation
 import GooglePlaces
 import CoreLocation
 
+// create model
 struct Place {
     let name: String
     let identifier: String
@@ -17,11 +18,12 @@ struct Place {
 final class GooglePlacesManager {
     static let shared = GooglePlacesManager()
     
+    // get client for Google Places
     private let client = GMSPlacesClient.shared()
     
     private init() {}
     
-      
+    // create custom error
     enum PlacesError: Error {
         case failedToFind
         case failedToGetCoordinates
@@ -43,12 +45,14 @@ final class GooglePlacesManager {
                 filter: filter,
                 sessionToken: nil
             ) { results, error in
+                // unwrap
                 guard let results = results, error == nil else {
                     //print("up")
                     //print(results)
                     completion(.failure(PlacesError.failedToFind))
                     return
                 }
+                // use results to create an array of place models
                 let places: [Place] = results.compactMap({
                     Place(
                         name: $0.attributedFullText.string,
@@ -56,6 +60,7 @@ final class GooglePlacesManager {
                     )
                 })
                 
+                // call completion handler
                 completion(.success(places))
             }
     }
@@ -63,6 +68,7 @@ final class GooglePlacesManager {
     //Converting that place to a given field
     public func resolveLocation(
         for place: Place,
+        // CLLocation encapsulates both longitude and latitude
         completion: @escaping (Result<CLLocationCoordinate2D, Error>) -> Void
     ) {
         client.fetchPlace(
@@ -70,6 +76,7 @@ final class GooglePlacesManager {
             placeFields: .coordinate,
             sessionToken: nil
         ) { googlePlace, error in
+            // unwrap
             guard let googlePlace = googlePlace, error == nil else {
                 completion(.failure(PlacesError.failedToGetCoordinates))
                 return

@@ -17,7 +17,7 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // title which is displayed on the top right
+        // title which is displayed on the top left
         title = "Where to?"
         // add map as a subview
         view.addSubview(mapView)
@@ -72,6 +72,7 @@ extension WhereTo: ResultsDelegate {
         
         // keyboard go away after find destination
         searchVC.searchBar.resignFirstResponder()
+        // removes cancel button when location is selected
         searchVC.dismiss(animated: true, completion: nil)
         
         // remove past map pins
@@ -85,7 +86,7 @@ extension WhereTo: ResultsDelegate {
         mapView.setRegion(
             MKCoordinateRegion(
                 center: coordinates,
-                span: MKCoordinateSpan(
+                span: MKCoordinateSpan( // how far you want to zoom into map
                     latitudeDelta: 0.2,
                     longitudeDelta: 0.2
                 )),
