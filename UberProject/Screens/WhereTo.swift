@@ -84,6 +84,13 @@ extension WhereTo: ResultsDelegate {
                 )),
             animated: true
         )
+        let deadline = Date().advanced(by: 1)
+        Thread.sleep(until: deadline)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenerateRoutes") as! GenerateRoutes
+        vc.coords = coordinates
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
+        
     }
 }
 

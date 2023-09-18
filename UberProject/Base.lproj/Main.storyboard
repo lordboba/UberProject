@@ -16,15 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGm-8g-tXK">
-                                <rect key="frame" x="136" y="103" width="121" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Card Testing"/>
-                                <connections>
-                                    <segue destination="rul-w8-4Y8" kind="show" id="cMY-fI-sL0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhs-qd-5V2">
                                 <rect key="frame" x="265" y="102" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,7 +54,7 @@
         <!--Generate Routes-->
         <scene sceneID="FYn-95-E32">
             <objects>
-                <viewController id="rul-w8-4Y8" customClass="GenerateRoutes" customModule="UberProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GenerateRoutes" id="rul-w8-4Y8" customClass="GenerateRoutes" customModule="UberProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zlr-f5-ANH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
