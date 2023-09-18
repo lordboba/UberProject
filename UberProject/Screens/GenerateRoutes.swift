@@ -26,20 +26,22 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var sortButtons: [UIButton]!
     
     @IBAction func sortByAction(_ sender: Any) {
+        showButtonVisibility()
     }
     
     @IBAction func sortButtonsAction(_ sender: UIButton) {
         showButtonVisibility()
-        switch sender.currentTitle {
+//        print((sender.titleLabel!.text)!)
+        switch (sender.titleLabel!.text)! {
         case "Time":
             sortByButton.backgroundColor = .systemBlue
             sortByButton.setTitle("Time", for: .normal)
         case "Price":
             sortByButton.backgroundColor = .systemYellow
             sortByButton.setTitle("Price", for: .normal)
-        case "Emission":
+        case "Emissions":
             sortByButton.backgroundColor = .systemGreen
-            sortByButton.setTitle("Emission", for: .normal)
+            sortByButton.setTitle("Emissions", for: .normal)
         default:
             sortByButton.backgroundColor = .systemBlue
             sortByButton.setTitle("Time", for: .normal)
@@ -60,6 +62,7 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func showButtonVisibility () {
+        print("on/off")
         sortButtons.forEach {button in
             UIView.animate(withDuration: 0.3) {
                 button.isHidden = !button.isHidden
