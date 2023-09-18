@@ -11,10 +11,12 @@ protocol ResultsDelegate: AnyObject {
     func didTapPlace(with coordinates: CLLocationCoordinate2D)
 }
 
+// this file is responsible for showing out location predictions
 class Results: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     weak var delegate: ResultsDelegate?
     
+    // this is where the location predictions are shown
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -31,6 +33,7 @@ class Results: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
     }
     
+    // lay out the tableview
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds

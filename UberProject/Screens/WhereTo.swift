@@ -12,11 +12,14 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
 
     let mapView = MKMapView()
     
+    // the results function is responsible for showing our location predictions
     let searchVC = UISearchController(searchResultsController: Results())
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // title which is displayed on the top right
         title = "Where to?"
+        // add map as a subview
         view.addSubview(mapView)
         searchVC.searchBar.backgroundColor = .secondarySystemBackground
         searchVC.searchResultsUpdater = self
@@ -25,6 +28,7 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        // prevent search bar from overlapping with map
         mapView.frame = CGRect(
             x: 0,
             y: view.safeAreaInsets.top,
@@ -34,7 +38,9 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
     }
 
     func updateSearchResults(for searchController: UISearchController) {
+        // get query text out of searchController
         guard let query = searchController.searchBar.text,
+              // can't search for empty string
               !query.trimmingCharacters(in: .whitespaces).isEmpty,
               let resultsVC = searchController.searchResultsController as? Results else {
             return
@@ -42,6 +48,7 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
         
         resultsVC.delegate = self
         
+        // Call API. Find all places for this query and return an array of places back
         GooglePlacesManager.shared.findPlaces(query: query) { result in
             switch result {
             case.success(let places):
