@@ -183,6 +183,13 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNd-GW-c2f">
+                                                            <rect key="frame" x="236" y="127" width="54" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNj-eM-Ot1">
                                                             <rect key="frame" x="195" y="172" width="33" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -211,13 +218,6 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNd-GW-c2f">
-                                                            <rect key="frame" x="236" y="127" width="54" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="% CO2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kh-Cf-kqG">
                                                             <rect key="frame" x="223" y="172" width="54" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -239,13 +239,13 @@
                                         <connections>
                                             <outlet property="cardView" destination="S3B-HG-9KA" id="ABz-HN-gwK"/>
                                             <outlet property="emissionLabel2" destination="JNj-eM-Ot1" id="EgK-fM-6mi"/>
-                                            <outlet property="icon1" destination="3rJ-Rn-THl" id="28m-H1-StJ"/>
-                                            <outlet property="icon2" destination="dLi-Sp-1Ig" id="WZb-Wr-dCb"/>
-                                            <outlet property="icon3" destination="W7H-Jb-VKo" id="vco-He-uaD"/>
-                                            <outlet property="icon4" destination="dsH-Ry-UDw" id="V1U-Jc-bYV"/>
-                                            <outlet property="icon5" destination="6gr-Vj-epd" id="dcJ-Kc-f45"/>
                                             <outlet property="priceLabel2" destination="BNd-GW-c2f" id="ZET-Ay-yv0"/>
                                             <outlet property="timeLabel2" destination="9IM-8S-srU" id="U6z-5v-yMY"/>
+                                            <outletCollection property="icons" destination="3rJ-Rn-THl" collectionClass="NSMutableArray" id="Yps-2y-xl0"/>
+                                            <outletCollection property="icons" destination="dLi-Sp-1Ig" collectionClass="NSMutableArray" id="Gw3-5E-trx"/>
+                                            <outletCollection property="icons" destination="W7H-Jb-VKo" collectionClass="NSMutableArray" id="Uf7-Ph-AnP"/>
+                                            <outletCollection property="icons" destination="dsH-Ry-UDw" collectionClass="NSMutableArray" id="wAZ-4b-8KM"/>
+                                            <outletCollection property="icons" destination="6gr-Vj-epd" collectionClass="NSMutableArray" id="9kZ-Vg-Goj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

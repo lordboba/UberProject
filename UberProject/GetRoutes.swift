@@ -7,6 +7,47 @@
 
 import Foundation
 
+func fetchDriveRoute(orgLat: Float, orgLong: Float, desLat: Float, desLong: Float)-> [String: Any]  {
+    let json: [String:Any] = [
+                                 "origin":
+                                     [
+                                         "location":
+                                             [
+                                                 "latLng":
+                                                     [
+                                                         "latitude": orgLat,
+                                                         "longitude": orgLong
+                                                     ]
+                                             ]
+                                     ],
+                                 "destination":
+                                     [
+                                         "location":
+                                             [
+                                                 "latLng":
+                                                     [
+                                                         "latitude": desLat,
+                                                         "longitude": desLong
+                                                     ]
+                                             ]
+                                     ],
+                                 "travelMode": "DRIVE",
+    //                             "routingPreference": "TRAFFIC_AWARE",
+                                 "computeAlternativeRoutes": false,
+                                 "routeModifiers":
+                                    [
+                                     "avoidTolls": false,
+                                     "avoidHighways": false,
+                                     "avoidFerries": false
+                                    ],
+                                 "languageCode": "en-US",
+                                 "units": "IMPERIAL",
+                                 
+    //                             "departureTime": "2023-10-15T15:01:23.045123456Z",
+                                 ]
+    let jsonData: [String:Any] = fetch(json: json)
+    return jsonData
+}
 
 func fetchRoutes(orgLat: Float, orgLong: Float, desLat: Float, desLong: Float)-> [String: Any]  {
     let json: [String:Any] = [

@@ -10,18 +10,25 @@ import UIKit
 class CardCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var icon1: UIImageView!
-    @IBOutlet weak var icon2: UIImageView!
-    @IBOutlet weak var icon3: UIImageView!
-    @IBOutlet weak var icon4: UIImageView!
-    @IBOutlet weak var icon5: UIImageView!
+    @IBOutlet var icons: [UIImageView]!
+
     @IBOutlet weak var timeLabel2: UILabel!
     @IBOutlet weak var priceLabel2: UILabel!
     @IBOutlet weak var emissionLabel2: UILabel!
     // Set up cell
-    func configure(modeIcons: UIImage, times: String, prices: String, emissions: String) {
+    func configure(modeIcons: [Bool], times: String, prices: String, emissions: String) {
         // Generate images through icons 1 - 5 
-        icon1.image = modeIcons
+        //icon1.image = modeIcons
+        
+        var dex = 0
+        for i in icons{
+            if modeIcons[dex] {
+                i.isHidden = false
+            } else {
+                i.isHidden = true
+            }
+            dex = dex + 1
+        }
         timeLabel2.text = times
         priceLabel2.text = prices
         emissionLabel2.text = emissions

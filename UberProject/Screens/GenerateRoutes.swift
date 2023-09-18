@@ -14,12 +14,11 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return times.count
     }
-    
     //Defines what cells are being used
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
         //print("bleh")
-        cell.configure(modeIcons: modeIcons[indexPath.row], times: times[indexPath.row], prices: prices[indexPath.row], emissions: emissions[indexPath.row])
+        cell.configure(modeIcons: icons[indexPath.row], times: times[indexPath.row], prices: prices[indexPath.row], emissions: emissions[indexPath.row])
         return cell
     }
     @IBOutlet weak var sortByButton: UIButton!
@@ -49,12 +48,14 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     // Generate certain icons depending on route
-    let modeIcons: [UIImage] = [UIImage(named: "Bus.png")!, UIImage(named: "Car.png")!, UIImage(named: "Train.png")!, UIImage(named: "Subway.png")!, UIImage(named: "Light-rail.png")!]
     
     // Need to connect to backend
-    var times: [String] = ["35", "65", "32", "12", "123"]
-    var prices: [String] = ["55", "45", "97", "13", "34"]
-    var emissions: [String] = ["4", "53", "34", "23", "16"]
+    var times: [String] = []
+    var prices: [String] = []
+    var emissions: [String] = []
+    var icons: [[Bool]] = []
+    // Car, Bus, Subway, Train, Light-rail
+    let emitNum : [Float] = [ 377.0,291.0,40.0,177.0,249.5]
     var coords : CLLocationCoordinate2D!
     var curr_loc : CLLocationCoordinate2D!
     var locationManager = CLLocationManager()
@@ -76,13 +77,40 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     func createTable(routeCoords : [Any]) {
-        var dex = 0
-        for r in routeCoords{
+        //add one car only
+        var maxEmissions:Float = 0.0
+        var driveRoute = (fetchDriveRoute(orgLat: Float(curr_loc.latitude), orgLong: Float(curr_loc.longitude), desLat: Float(coords.latitude), desLong: Float(coords.longitude)))
+        if (driveRoute.keys.contains("routes")) {
+            var realDrive = (driveRoute["routes"] as! [Any])[0] as! Dictionary<String,Any>
+            var the_time = (Float((realDrive["duration"] as! String).components(separatedBy: "s")[0]+".0") ?? 0.0) / 60.0
+            let roundedTime = round(the_time * 10) / 10.0
+            times.append(String(roundedTime))
+            var dist = Float((realDrive["localizedValues"] as! Dictionary<String, Dictionary<String, String>>)["distance"]!["text"]!.components(separatedBy: " ")[0])!
+            var fare = max(7.0, 2.55 + 0.35 * the_time + 1.75 * dist)
+            let fareStr = round(the_time * 100) / 100.0
+            prices.append(String(fareStr))
+            maxEmissions = 371.0 * dist
+            emissions.append("0")
+            icons.append([true, false, false, false, false])
+            // distance, text
+            //print(fare)
+        }
+        cardTableView.reloadData()
+        //print(driveRoute)
+        var dex = 1
+        for r in routeCoords {
             var actual = r as! Dictionary<String,Any>
             var the_time = (Float((actual["duration"] as! String).components(separatedBy: "s")[0]+".0") ?? 0.0) / 60.0
+            //find the total time it takes to complete the route
             let roundedTime = round(the_time * 10) / 10.0
-            times[dex] = String(roundedTime)
-            print(the_time)
+            times.append(String(roundedTime))
+            //estimate the price of public transportation
+            var price = 0.0
+            
+            var emissions = 0.0
+            //print(actual)
+            //emissions calculations
+            //print(the_time)
             dex = dex + 1
         }
     }
