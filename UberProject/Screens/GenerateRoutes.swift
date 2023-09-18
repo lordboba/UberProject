@@ -56,6 +56,7 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
     var icons: [[Bool]] = []
     // Car, Bus, Subway, Train, Light-rail
     let emitNum : [Float] = [ 377.0,291.0,40.0,177.0,249.5]
+    let textVal :[String] = ["DRIVE","BUS","SUBWAY","TRAIN","LIGHT_RAIL"]
     var coords : CLLocationCoordinate2D!
     var curr_loc : CLLocationCoordinate2D!
     var locationManager = CLLocationManager()
@@ -105,14 +106,46 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
             let roundedTime = round(the_time * 10) / 10.0
             times.append(String(roundedTime))
             //estimate the price of public transportation
-            var price = 0.0
-            
-            var emissions = 0.0
+            var price:Float = 0.0
+            var icon_keys = [false, false, false, false, false]
+            var emissions:Float = 0.0
+            var steps = (((r as! Dictionary<String, Any>)["legs"] as! [Any])[0] as! Dictionary<String, Any>)["steps"] as! [Any]
+            for s in steps {
+                var temp2 = s as! Dictionary<String, Any>
+                var mode = temp2["travelMode"] as! String
+                var vals = temp2["localizedValues"] as! Dictionary<String, Dictionary<String, String>>
+                if mode == "TRANSIT" {
+                    var type = (((temp2["transitDetails"] as! Dictionary<String, Any>)["transitLine"] as! Dictionary<String,Any>)["vehicle"] as! Dictionary<String, Any>)["type"] as! String
+                    print(type)
+                    for i in 0..<5 {
+                        if(textVal[i] == type) {
+                            var dist = Float(vals["distance"]!["text"]!.components(separatedBy: " ")[0])!
+                            emissions = emissions + emitNum[i] * dist
+                            icon_keys[i] = true
+                        }
+                    }
+                    price += 2.9
+                    //print(vals)
+                }
+                
+                //print(mode)
+                //print(vals)
+
+            }
+            price = round(price * 100) / 100.0
+            //emissions = round(emissions)
+            var percentChange = round((maxEmissions-emissions) / maxEmissions * 100)
+            prices.append(String(price))
+            self.emissions.append(String(percentChange))
+            icons.append(icon_keys)
+            //print(price)
+           // print(emissions)
             //print(actual)
             //emissions calculations
             //print(the_time)
             dex = dex + 1
         }
+        cardTableView.reloadData()
     }
     var semaphore : DispatchSemaphore!
     override func viewDidLoad() {
