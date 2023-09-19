@@ -7,6 +7,7 @@
 
 import UIKit
 
+//this was just used for testing out the api
 class TestingScreen: UIViewController {
 
     override func viewDidLoad() {

@@ -28,7 +28,7 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func sortByAction(_ sender: Any) {
         showButtonVisibility()
     }
-    
+    //update the Table based on which it is sorted by
     @IBAction func sortButtonsAction(_ sender: UIButton) {
         showButtonVisibility()
 //        print((sender.titleLabel!.text)!)
@@ -100,7 +100,6 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
         return bot
         
     }
-    // Need to connect to backend
     var times: [String] = []
     var prices: [String] = []
     var emissions: [String] = []
@@ -111,8 +110,8 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
     var coords : CLLocationCoordinate2D!
     var curr_loc : CLLocationCoordinate2D!
     var locationManager = CLLocationManager()
-
-  
+    
+    //get current location of User to use
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         semaphore.signal()

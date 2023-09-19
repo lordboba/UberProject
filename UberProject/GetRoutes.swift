@@ -6,7 +6,9 @@
 //
 
 import Foundation
+//run API calls to Google Routes API
 
+//fetchDrive Route specifically is for the Rideshare only option
 func fetchDriveRoute(orgLat: Float, orgLong: Float, desLat: Float, desLong: Float)-> [String: Any]  {
     let json: [String:Any] = [
                                  "origin":
