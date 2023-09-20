@@ -9,7 +9,7 @@ import Foundation
 import GooglePlaces
 import CoreLocation
 
-// create model
+// Create model
 struct Place {
     let name: String
     let identifier: String
@@ -18,12 +18,12 @@ struct Place {
 final class GooglePlacesManager {
     static let shared = GooglePlacesManager()
     
-    // get client for Google Places
+    // Get client for Google Places
     private let client = GMSPlacesClient.shared()
     
     private init() {}
     
-    // create custom error
+    // Create custom error
     enum PlacesError: Error {
         case failedToFind
         case failedToGetCoordinates
@@ -45,14 +45,14 @@ final class GooglePlacesManager {
                 filter: filter,
                 sessionToken: nil
             ) { results, error in
-                // unwrap
+                // Unwrap
                 guard let results = results, error == nil else {
                     //print("up")
                     //print(results)
                     completion(.failure(PlacesError.failedToFind))
                     return
                 }
-                // use results to create an array of place models
+                // Use results to create an array of place models
                 let places: [Place] = results.compactMap({
                     Place(
                         name: $0.attributedFullText.string,
@@ -60,7 +60,7 @@ final class GooglePlacesManager {
                     )
                 })
                 
-                // call completion handler
+                // Call completion handler
                 completion(.success(places))
             }
     }
@@ -76,7 +76,7 @@ final class GooglePlacesManager {
             placeFields: .coordinate,
             sessionToken: nil
         ) { googlePlace, error in
-            // unwrap
+            // Unwrap
             guard let googlePlace = googlePlace, error == nil else {
                 completion(.failure(PlacesError.failedToGetCoordinates))
                 return
@@ -86,9 +86,8 @@ final class GooglePlacesManager {
                 latitude: googlePlace.coordinate.latitude,
                 longitude: googlePlace.coordinate.longitude
             )
-            
+
             completion(.success(coordinate))
         }
-        
     }
 }
