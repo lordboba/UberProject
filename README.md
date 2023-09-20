@@ -7,7 +7,7 @@ Ride sharing services and public transit aren't integrated very well as of now. 
 
 
 ## Implementation
-RideHop is an iOS app written in Swift. It uses Google Places API to generate map locations from addresses. Then the user's location obtained from GPS and their chosen destination is passed along to the Google Routes API to generate potential routes. All the transit modes, no route modifiers (avoid tolls, highways, or ferries), and compute alternative routes were chosen to give the users a wide variety of options. The API to return detailed information for every step of each route, including the estimated time, distance, type of travel, start and end locations, and public transit departure time and arrival time. Then emissions for each route is calculated individually based on modes of transportation, distances, and number of individuals. 
+RideHop is an iOS app written in Swift. It uses Google Places API to generate map locations from addresses. Then the user's location obtained from GPS and their chosen destination is passed along to the Google Routes API to generate potential routes. All the transit modes, no route modifiers (avoid tolls, highways, or ferries), and compute alternative routes were chosen to give the users a wide variety of options. The API to return detailed information for every step of each route, including the estimated time, distance, type of travel, start and end locations, and public transit departure time and arrival time. Then emissions for each route is calculated individually based on average grams of CO2 per passenger mile for each mode of transportion multiplied with the distance travelled in miles. 
 
 
 ## How to use
