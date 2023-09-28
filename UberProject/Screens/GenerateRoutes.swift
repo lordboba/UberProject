@@ -149,6 +149,7 @@ class GenerateRoutes: UIViewController, UITableViewDelegate, UITableViewDataSour
         cardTableView.reloadData()
         //print(driveRoute)
         var dex = 1
+        //go through routes and calculate prices and emissions for New York City Transit
         for r in routeCoords {
             var actual = r as! Dictionary<String,Any>
             var the_time = (Float((actual["duration"] as! String).components(separatedBy: "s")[0]+".0") ?? 0.0) / 60.0
