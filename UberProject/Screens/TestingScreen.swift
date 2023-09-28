@@ -7,7 +7,8 @@
 
 import UIKit
 
-//this was just used for testing out the api
+// THIS FILE WAS JUST USED FOR TESTING OUT THE API
+
 class TestingScreen: UIViewController {
 
     override func viewDidLoad() {

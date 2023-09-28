@@ -8,18 +8,21 @@
 import UIKit
 import MapKit
 
+// Users search for places & find routes to those places on a map
 class WhereTo: UIViewController, UISearchResultsUpdating {
 
+    // Display map
     let mapView = MKMapView()
     
-    // the results function is responsible for showing our location predictions
+    // Handle user input & display search results
+    // Results function is responsible for showing our location predictions
     let searchVC = UISearchController(searchResultsController: Results())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // title which is displayed on the top left
+        // Title which is displayed on the top left
         title = "Where to?"
-        // add map as a subview
+        // Add map as a subview
         view.addSubview(mapView)
         searchVC.searchBar.backgroundColor = .secondarySystemBackground
         searchVC.searchResultsUpdater = self
@@ -28,7 +31,7 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // prevent search bar from overlapping with map
+        // Prevent search bar from overlapping with map
         mapView.frame = CGRect(
             x: 0,
             y: view.safeAreaInsets.top,
@@ -38,9 +41,9 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
     }
 
     func updateSearchResults(for searchController: UISearchController) {
-        // get query text out of searchController
+        // Get query text out of searchController
         guard let query = searchController.searchBar.text,
-              // can't search for empty string
+              // Can't search for empty string
               !query.trimmingCharacters(in: .whitespaces).isEmpty,
               let resultsVC = searchController.searchResultsController as? Results else {
             return
@@ -57,36 +60,36 @@ class WhereTo: UIViewController, UISearchResultsUpdating {
                     resultsVC.update(with: places)
                 }
                 
-                
             case.failure(let error):
                 print(error)
                 //print("fe")
             }
         }
     }
-
 }
 
 extension WhereTo: ResultsDelegate {
     func didTapPlace(with coordinates: CLLocationCoordinate2D){
         
-        // keyboard go away after find destination
+        // Keyboard go away after find destination
         searchVC.searchBar.resignFirstResponder()
-        // removes cancel button when location is selected
+        // Removes cancel button when location is selected
         searchVC.dismiss(animated: true, completion: nil)
         
-        // remove past map pins
+        // Remove past map pins
         let annotations = mapView.annotations
         mapView.removeAnnotations(annotations)
         
-        // add a map pin
+        // Add a map pin
         let pin = MKPointAnnotation()
         pin.coordinate = coordinates
         mapView.addAnnotation(pin)
+        
+        // Sets map's region to focus on selected place
         mapView.setRegion(
             MKCoordinateRegion(
                 center: coordinates,
-                span: MKCoordinateSpan( // how far you want to zoom into map
+                span: MKCoordinateSpan( // How far you want to zoom into map
                     latitudeDelta: 0.2,
                     longitudeDelta: 0.2
                 )),
@@ -94,6 +97,8 @@ extension WhereTo: ResultsDelegate {
         )
         let deadline = Date().advanced(by: 1)
         Thread.sleep(until: deadline)
+        
+        // Create new view controller & passes selected coordinates to it
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenerateRoutes") as! GenerateRoutes
         vc.coords = coordinates
         self.navigationController?.pushViewController(vc, animated: true)
